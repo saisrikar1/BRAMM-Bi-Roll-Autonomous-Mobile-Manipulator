@@ -1,0 +1,380 @@
+<?xml version="1.0" ?>
+<robot name="bramm" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find bramm_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find bramm_description)/urdf/bramm.trans" />
+<xacro:include filename="$(find bramm_description)/urdf/bramm.gazebo" />
+<link name="base_link">
+ <inertial>
+  <origin xyz="0 0 0.01" rpy="0 0 0"/>
+  <mass value="2.0"/>
+  <inertia ixx="0.02" iyy="0.02" izz="0.03"
+           ixy="0" iyz="0" ixz="0"/>
+</inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bramm_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bramm_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_rr_1">
+  <inertial>
+  <origin xyz="0 0 0" rpy="0 0 0"/>
+  <mass value="0.2"/>
+  <inertia ixx="0.0005" iyy="0.001" izz="0.0005"
+           ixy="0" iyz="0" ixz="0"/>
+</inertial>
+  <visual>
+    <origin xyz="0.09 0.05 -0.0025" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bramm_description)/meshes/wheel_rr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.09 0.05 -0.0025" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bramm_description)/meshes/wheel_rr_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <surface>
+  <friction>
+    <ode>
+      <mu>1.2</mu>
+      <mu2>1.2</mu2>
+    </ode>
+  </friction>
+</surface>
+  </collision>
+</link>
+
+<link name="wheel_rl_1">
+  <inertial>
+  <origin xyz="0 0 0" rpy="0 0 0"/>
+  <mass value="0.2"/>
+  <inertia ixx="0.0005" iyy="0.001" izz="0.0005"
+           ixy="0" iyz="0" ixz="0"/>
+</inertial>
+  <visual>
+    <origin xyz="0.09 -0.05 -0.0025" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bramm_description)/meshes/wheel_rl_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.09 -0.05 -0.0025" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bramm_description)/meshes/wheel_rl_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <surface>
+  <friction>
+    <ode>
+      <mu>1.2</mu>
+      <mu2>1.2</mu2>
+    </ode>
+  </friction>
+</surface>
+  </collision>
+</link>
+
+<link name="elbo_1_1">
+  <inertial>
+  <origin xyz="0 0 0.04" rpy="0 0 0"/>
+  <mass value="0.35"/>
+  <inertia ixx="0.0012" iyy="0.0012" izz="0.0006"
+           ixy="0" iyz="0" ixz="0"/>
+</inertial>
+  <visual>
+    <origin xyz="-0.074661 -0.01555 -0.023" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bramm_description)/meshes/elbo_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.074661 -0.01555 -0.023" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bramm_description)/meshes/elbo_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="arm_1_1">
+  <inertial>
+  <origin xyz="0 0 0.07" rpy="0 0 0"/>
+  <mass value="0.3"/>
+  <inertia ixx="0.001" iyy="0.001" izz="0.0005"
+           ixy="0" iyz="0" ixz="0"/>
+</inertial>
+  <visual>
+    <origin xyz="-0.074661 -0.00955 -0.138" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bramm_description)/meshes/arm_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.074661 -0.00955 -0.138" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bramm_description)/meshes/arm_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lidar_stand_1">
+  <inertial>
+  <origin xyz="0 0 0.08" rpy="0 0 0"/>
+  <mass value="0.15"/>
+  <inertia ixx="0.0004" iyy="0.0004" izz="0.0002"
+           ixy="0" iyz="0" ixz="0"/>
+</inertial>
+  <visual>
+    <origin xyz="0.09 -0.0 -0.005" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bramm_description)/meshes/lidar_stand_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.09 -0.0 -0.005" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bramm_description)/meshes/lidar_stand_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lidar_1">
+  <inertial>
+  <origin xyz="0 0 0.01" rpy="0 0 0"/>
+  <mass value="0.2"/>
+  <inertia ixx="0.0002" iyy="0.0002" izz="0.0003"
+           ixy="0" iyz="0" ixz="0"/>
+</inertial>
+  <visual>
+    <origin xyz="0.09 -0.0 -0.175" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bramm_description)/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.09 -0.0 -0.175" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bramm_description)/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="camera_1">
+  <inertial>
+  <origin xyz="0 0 0" rpy="0 0 0"/>
+  <mass value="0.04"/>
+  <inertia ixx="0.00002" iyy="0.00002" izz="0.00002"
+           ixy="0" iyz="0" ixz="0"/>
+</inertial>
+  <visual>
+    <origin xyz="-0.059661 -0.02255 -0.343" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bramm_description)/meshes/camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.059661 -0.02255 -0.343" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bramm_description)/meshes/camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="camera2_1">
+  <inertial>
+  <origin xyz="0 0 0" rpy="0 0 0"/>
+  <mass value="0.04"/>
+  <inertia ixx="0.00002" iyy="0.00002" izz="0.00002"
+           ixy="0" iyz="0" ixz="0"/>
+</inertial>
+  <visual>
+    <origin xyz="-0.089661 -0.02055 -0.038" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bramm_description)/meshes/camera2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.089661 -0.02055 -0.038" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bramm_description)/meshes/camera2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="gripper_left_1">
+  <inertial>
+  <origin xyz="0 0 0.015" rpy="0 0 0"/>
+  <mass value="0.05"/>
+  <inertia ixx="0.00003" iyy="0.00003" izz="0.00002"
+           ixy="0" iyz="0" ixz="0"/>
+</inertial>
+  <visual>
+    <origin xyz="-0.074661 -0.00955 -0.238" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bramm_description)/meshes/gripper_left_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.074661 -0.00955 -0.238" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bramm_description)/meshes/gripper_left_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="gripper_right_1">
+  <inertial>
+  <origin xyz="0 0 0.015" rpy="0 0 0"/>
+  <mass value="0.05"/>
+  <inertia ixx="0.00003" iyy="0.00003" izz="0.00002"
+           ixy="0" iyz="0" ixz="0"/>
+</inertial>
+  <visual>
+    <origin xyz="-0.074661 0.02045 -0.238" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bramm_description)/meshes/gripper_right_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.074661 0.02045 -0.238" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bramm_description)/meshes/gripper_right_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="right_wheel_joint" type="continuous">
+  <origin xyz="-0.09 -0.05 0.0025" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="wheel_rr_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="left_wheel_joint" type="continuous">
+  <origin xyz="-0.09 0.05 0.0025" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="wheel_rl_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="elbo_joint" type="continuous">
+  <origin xyz="0.074661 0.01555 0.023" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="elbo_1_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+</joint>
+
+<joint name="arm_joint" type="continuous">
+  <origin xyz="0.0 -0.006 0.115" rpy="0 0 0"/>
+  <parent link="elbo_1_1"/>
+  <child link="arm_1_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+</joint>
+
+<joint name="Rigid_1" type="fixed">
+  <origin xyz="-0.09 0.0 0.005" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="lidar_stand_1"/>
+</joint>
+
+<joint name="Rigid_2" type="fixed">
+  <origin xyz="0.0 0.0 0.17" rpy="0 0 0"/>
+  <parent link="lidar_stand_1"/>
+  <child link="lidar_1"/>
+</joint>
+
+<joint name="Rigid_3" type="fixed">
+  <origin xyz="-0.015 0.013 0.205" rpy="0 0 0"/>
+  <parent link="arm_1_1"/>
+  <child link="camera_1"/>
+</joint>
+
+<joint name="Rigid_4" type="fixed">
+  <origin xyz="0.089661 0.02055 0.038" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="camera2_1"/>
+</joint>
+
+<joint name="left_gripper_joint" type="continuous">
+  <origin xyz="0.0 0.0 0.1" rpy="0 0 0"/>
+  <parent link="arm_1_1"/>
+  <child link="gripper_left_1"/>
+  <axis xyz="-1.0 0.0 0.0"/>
+</joint>
+
+<joint name="right_gripper_joint" type="continuous">
+  <origin xyz="0.0 -0.03 0.1" rpy="0 0 0"/>
+  <parent link="arm_1_1"/>
+  <child link="gripper_right_1"/>
+  <axis xyz="1.0 -0.0 0.0"/>
+</joint>
+
+<gazebo>
+  <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
+    <parameters>$(find bramm_description)/config/controllers.yaml</parameters>
+  </plugin>
+</gazebo>
+
+
+<ros2_control name="GazeboSystem" type="system">
+
+  <hardware>
+    <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+  </hardware>
+
+  <joint name="left_wheel_joint">
+    <command_interface name="velocity"/>
+    <state_interface name="velocity"/>
+    <state_interface name="position"/>
+  </joint>
+
+  <joint name="right_wheel_joint">
+    <command_interface name="velocity"/>
+    <state_interface name="velocity"/>
+    <state_interface name="position"/>
+  </joint>
+
+</ros2_control>
+
+<gazebo reference="wheel_rl_1">
+  <mu1>2.0</mu1>
+  <mu2>2.0</mu2>
+  <kp>1000000</kp>
+  <kd>1.0</kd>
+</gazebo>
+
+<gazebo reference="wheel_rr_1">
+  <mu1>2.0</mu1>
+  <mu2>2.0</mu2>
+  <kp>1000000</kp>
+  <kd>1.0</kd>
+</gazebo>
+
+<gazebo reference="base_link">
+  <mu1>0.001</mu1>
+  <mu2>0.001</mu2>
+  <kp>100000</kp>
+  <kd>10</kd>
+</gazebo>
+
+
+</robot>
