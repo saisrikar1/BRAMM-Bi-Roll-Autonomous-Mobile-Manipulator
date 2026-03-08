@@ -12,20 +12,25 @@ controller_manager:
 diff_drive_controller:
   ros__parameters:
 
-    left_wheel_names: ["left_wheel_joint"]
-    right_wheel_names: ["right_wheel_joint"]
+    left_wheel_names: ["Revolute 7"]
+    right_wheel_names: ["Revolute 3"]
 
-    wheel_separation: 0.18
-    wheel_radius: 0.065
+    wheel_separation: 0.1
+    wheel_radius: 0.0325
 
-    base_frame_id: base_link
+    base_frame_id: base_footprint
     odom_frame_id: odom
 
     publish_rate: 50.0
     use_stamped_vel: false
 
     enable_odom_tf: true
+    open_loop: false
+
     cmd_vel_timeout: 0.5
+
+    pose_covariance_diagonal: [0.001, 0.001, 0.001, 0.001, 0.001, 0.01]
+    twist_covariance_diagonal: [0.001, 0.001, 0.001, 0.001, 0.001, 0.01]
 
     linear:
       x:

@@ -7,7 +7,7 @@ package_name = 'bramm_description'
 setup(
     name=package_name,
     version='0.0.0',
-    packages=[],
+    packages=['bramm_description'],
     data_files=[
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
@@ -27,6 +27,8 @@ setup(
     license='TODO',
     tests_require=['pytest'],
     entry_points={
-        'console_scripts': [],
+        'console_scripts': [
+                  'patrol_node = bramm_description.patrol_node:main',
+        ],
     },
 )
