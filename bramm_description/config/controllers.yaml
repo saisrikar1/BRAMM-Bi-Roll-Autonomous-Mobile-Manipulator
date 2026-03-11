@@ -7,8 +7,18 @@ controller_manager:
 
     diff_drive_controller:
       type: diff_drive_controller/DiffDriveController
+    arm_controller:
+      type: forward_command_controller/ForwardCommandController
 
 
+
+arm_controller:
+  ros__parameters:
+    joints:
+      - Revolute 8
+      - Revolute 9
+
+    interface_name: position
 diff_drive_controller:
   ros__parameters:
 

@@ -50,6 +50,13 @@ def generate_launch_description():
     rviz_node = Node(
         package='rviz2',
         executable='rviz2',
+    <plugin name="camera_controller2" filename="libgazebo_ros_camera.so">
+      <camera_name>camera2</camera_name>
+      <image_topic_name>image_raw2</image_topic_name>
+      <camera_info_topic_name>camera_info2</camera_info_topic_name>
+      <frame_name>camera_link2</frame_name>
+    </plugin>
+
         name='rviz2',
         arguments=['-d', rviz_config_file],
         output='screen'
